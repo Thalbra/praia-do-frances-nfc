@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+
+  <!-- =========================================================
+  AQUI VOCÊ VAI TROCAR O TÍTULO DA ABA DO NAVEGADOR
+  Exemplo sugerido:
+    Guia NFC - Praia do Francês - AL
+  Basta trocar o texto entre <title> e </title>.
+  ========================================================== -->
+  <title>Guia NFC - Praia do Francês - AL</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- =========================================================
+  AQUI VOCÊ VAI TROCAR A DESCRIÇÃO PARA O GOOGLE (SEO)
+  Regra simples:
+    - Fale em 1 frase o que a página faz.
+    - Use “Praia do Francês”, “Alagoas”, “guia” ou “dicas”.
+  Exemplo:
+    "Guia rápido da Praia do Francês em Alagoas: como chegar, onde comer, o que fazer e contatos locais em um só lugar."
+  Troque apenas o TEXTO do content="".
+  ========================================================== -->
+  <meta
+    name="description"
+    content="Guia rápido da Praia do Francês em Alagoas: como chegar, onde comer, o que fazer e contatos locais em um só lugar."
+  />
+
+  <!-- A partir daqui é só estilo (CSS). NÃO precisa mexer para trocar textos. -->
+  <style>
+    :root {
+      --cor-primaria: #00a3c4;
+      --cor-secundaria: #ffb13b;
+      --cor-fundo: #f3f7fb;
+      --cor-texto: #123044;
+      --cor-branco: #ffffff;
+      --radius-grande: 18px;
+      --shadow-suave: 0 10px 25px rgba(0, 0, 0, 0.08);
+      --max-width: 1100px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+      background: var(--cor-fundo);
+      color: var(--cor-texto);
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .page {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 16px 16px 32px;
+    }
+
+    header {
+      margin-bottom: 24px;
+    }
+
+    .hero {
+      background: linear-gradient(
+        135deg,
+        #0099cc,
+        #00c9b7,
+        #00a3c4,
+        #0070b8
+      );
+      color: var(--cor-branco);
+      border-radius: 0 0 32px 32px;
+      padding: 20px 16px 40px;
+      box-shadow: var(--shadow-suave);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(
+          circle at 10% 20%,
+          rgba(255, 255, 255, 0.15) 0,
+          transparent 60%
+        ),
+        radial-gradient(
+          circle at 80% 0%,
+          rgba(255, 255, 255, 0.15) 0,
+          transparent 55%
+        );
+      opacity: 0.8;
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(0, 0, 0, 0.18);
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .hero-title {
+      font-size: 28px;
+      font-weight: 700;
+    }
+
+    .hero-subtitle {
+      font-size: 15px;
+      opacity: 0.95;
+    }
+
+    .hero-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 8px;
+    }
+
+    .btn {
+      border-radius: 999px;
+      padding: 10px 16px;
+      font-size: 14px;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      transition: transform 0.1s ease, box-shadow 0.1s ease, opacity 0.1s ease;
+      text-align: center;
+    }
+
+    .btn-primary {
+      background: var(--cor-secundaria);
+      color: #4b2a00;
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.22);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--cor-branco);
+      border: 1px solid rgba(255, 255, 255, 0.75);
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.28);
+      opacity: 0.95;
+    }
+
+    .btn span.icon {
+      font-size: 16px;
+    }
+
+    .hero-bottom {
+      margin-top: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-size: 11px;
+      opacity: 0.95;
+    }
+
+    .hero-chip {
+      background: rgba(0, 0, 0, 0.22);
+      padding: 4px 9px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .hero-photo {
+      margin-top: 16px;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+    }
+
+    main {
+      margin-top: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    section {
+      background: var(--cor-branco);
+      border-radius: var(--radius-grande);
+      padding: 14px 14px 16px;
+      box-shadow: var(--shadow-suave);
+    }
+
+    section h2 {
+      font-size: 18px;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    section h2 span.icon {
+      font-size: 18px;
+    }
+
+    .section-subtitle {
+      font-size: 13px;
+      color: #5a6a7a;
+      margin-bottom: 12px;
+    }
+
+    .quick-actions {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+      margin-top: 4px;
+    }
+
+    .quick-actions button,
+    .quick-actions a {
+      border-radius: 999px;
+      border: 1px solid #dde6f0;
+      background: #f7fbff;
+      padding: 9px 10px;
+      font-size: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      cursor: pointer;
+      transition: background 0.12s ease, transform 0.08s ease,
+        box-shadow 0.08s ease;
+      text-align: center;
+    }
+
+    .quick-actions button:hover,
+    .quick-actions a:hover {
+      background: #e2f3ff;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.06);
+    }
+
+    .quick-actions span.icon {
+      font-size: 16px;
+    }
+
+    .list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 8px;
+    }
+
+    .list-item {
+      padding: 8px 10px;
+      border-radius: 12px;
+      background: #f8fbff;
+      border: 1px solid #e1e9f2;
+    }
+
+    .list-item-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 8px;
+      margin-bottom: 4px;
+    }
+
+    .list-item-title {
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .list-item-tag {
+      font-size: 11px;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: #e9f8ff;
+      color: #006685;
+      white-space: nowrap;
+    }
+
+    .list-item-body {
+      font-size: 13px;
+      color: #4b5b6b;
+    }
+
+    .list-item-footer {
+      margin-top: 6px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      font-size: 11px;
+    }
+
+    .pill-link {
+      padding: 4px 8px;
+      border-radius: 999px;
+      border: 1px dashed #cfd8e3;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      cursor: pointer;
+      background: #ffffff;
+    }
+
+    .pill-link span.icon {
+      font-size: 14px;
+    }
+
+    .tips-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .tip {
+      padding: 8px 10px;
+      border-radius: 12px;
+      background: #fdf7ea;
+      border: 1px solid #f3e0b8;
+      font-size: 13px;
+    }
+
+    .tip strong {
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    .two-cols {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 10px;
+      margin-top: 8px;
+    }
+
+    .mini-card {
+      padding: 8px 10px;
+      border-radius: 12px;
+      background: #f8fbff;
+      border: 1px solid #e1e9f2;
+      font-size: 13px;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 11px;
+      color: #6c7a88;
+      margin-top: 16px;
+      padding: 6px 0 16px;
+    }
+
+    footer a {
+      color: #006685;
+      text-decoration: underline;
+    }
+
+    @media (min-width: 768px) {
+      .page {
+        padding: 24px 16px 40px;
+      }
+
+      .hero {
+        padding: 24px 24px 42px;
+      }
+
+      .hero-title {
+        font-size: 34px;
+      }
+
+      .hero-subtitle {
+        font-size: 16px;
+      }
+
+      .hero-layout {
+        display: grid;
+        grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+        gap: 18px;
+        align-items: center;
+      }
+
+      .hero-photo {
+        margin-top: 0;
+      }
+
+      main {
+        margin-top: 22px;
+        gap: 20px;
+      }
+
+      section {
+        padding: 16px 18px 20px;
+      }
+
+      .quick-actions {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .two-cols {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .tips-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="hero">
+    <div class="page hero-inner">
+      <header>
+        <!-- =====================================================
+        AQUI VOCÊ TROCA O TEXTO PEQUENO DA FAIXA NO TOPO (BADGE).
+        Exemplo:
+          "Praia do Francês • Marechal Deodoro - AL"
+          ou
+          "Praia do Francês • Alagoas - Brasil"
+        Troque apenas o texto entre <span> e </span>.
+        ====================================================== -->
+        <div class="hero-badge">
+          <span>Praia do Francês • Marechal Deodoro - AL</span>
+        </div>
+      </header>
+
+      <div class="hero-layout">
+        <div>
+          <!-- =====================================================
+          AQUI VOCÊ TROCA O TÍTULO PRINCIPAL (GRANDE)
+          Idéia: frase curta, forte, que explique o que é esse guia.
+          Exemplos:
+            "Praia do Francês na palma da mão"
+            "Seu guia inteligente da Praia do Francês"
+          ====================================================== -->
+          <h1 class="hero-title">Praia do Francês na palma da mão</h1>
+
+          <!-- =====================================================
+          AQUI VOCÊ TROCA O SUBTÍTULO (TEXTO LOGO ABAIXO DO TÍTULO)
+          Explique em 1 ou 2 frases o que a pessoa encontra na página.
+          Exemplo:
+            "Dicas, roteiros, onde comer, o que fazer e contatos locais para aproveitar ao máximo a Praia do Francês."
+          ====================================================== -->
+          <p class="hero-subtitle">
+            Dicas, roteiros, onde comer, o que fazer e contatos locais para
+            aproveitar ao máximo a Praia do Francês.
+          </p>
+
+          <div class="hero-cta">
+            <!-- =====================================================
+            BOTÃO 1: LEVA PARA A SEÇÃO DO MAPA NA MESMA PÁGINA
+            - Você pode trocar o texto entre <span>Ver mapa / Como chegar</span>
+            - NÃO mexa no href="#mapa", para continuar rolando até a seção mapa.
+            ====================================================== -->
+            <a href="#mapa" class="btn btn-primary">
+              <span class="icon">📍</span>
+              <span>Ver mapa / Como chegar</span>
+            </a>
+
+            <!-- =====================================================
+            BOTÃO 2: WHATSAPP PRINCIPAL
+            AQUI É IMPORTANTE:
+              1) Troque 5582999999999 pelo seu número COMPLETO:
+                 - Formato: DDI + DDD + Número
+                 - Exemplo Brasil: 55 + 82 + 999999999  => 5582999999999
+              2) Você pode trocar a mensagem após "text=".
+                 Lembre que:
+                   - Espaço = %20
+                   - Acentos funcionam, mas se der problema, use frase simples.
+            Exemplo de número:
+              href="https://wa.me/5582999999999?text=Olá,%20vi%20o%20guia%20NFC%20da%20Praia%20do%20Francês."
+            ====================================================== -->
+            <a
+              href="https://wa.me/5582999999999?text=Olá,%20vi%20o%20Guia%20NFC%20da%20Praia%20do%20Francês."
+              class="btn btn-outline"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span class="icon">💬</span>
+              <span>Chamar no WhatsApp</span>
+            </a>
+
+            <!-- =====================================================
+            BOTÃO 3: OFERTAS
+            - Você pode trocar o texto "Ofertas do dia".
+            - NÃO mexa no href="#ofertas", pois é a âncora da seção de ofertas.
+            ====================================================== -->
+            <a href="#ofertas" class="btn btn-outline">
+              <span class="icon">⭐</span>
+              <span>Ofertas do dia</span>
+            </a>
+          </div>
+
+          <!-- =====================================================
+          CHIPS (BOLINHAS) DO HERO
+          Aqui você pode trocar:
+            - Os EMOJIS (🌊, 🍤, 👨‍👩‍👧‍👦)
+            - Os textos ao lado.
+          Troque APENAS o texto dentro de cada div.hero-chip.
+          ====================================================== -->
+          <div class="hero-bottom">
+            <div class="hero-chip">
+              <span class="icon">🌊</span>
+              Piscinas naturais + mar para surf
+            </div>
+            <div class="hero-chip">
+              <span class="icon">🍤</span>
+              Bares, restaurantes e beach clubs
+            </div>
+            <div class="hero-chip">
+              <span class="icon">👨‍👩‍👧‍👦</span>
+              Perfeita para família e amigos
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-photo">
+          <!-- =====================================================
+          AQUI VOCÊ TROCA A FOTO PRINCIPAL DA PÁGINA
+          - Troque o link do src="..." por uma URL de imagem da Praia do Francês.
+          - Troque o texto do alt="" descrevendo a foto.
+          Exemplo de alt:
+            "Vista da Praia do Francês em Alagoas"
+          ====================================================== -->
+          <img
+            src="https://images.pexels.com/photos/457882/pexels-photo-457882.jpeg?auto=compress&cs=tinysrgb&w=1200"
+            alt="Vista da Praia do Francês em Alagoas"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page">
+    <main>
+      <!-- =========================================================
+      SEÇÃO: AÇÕES RÁPIDAS
+      Você vai mudar apenas TEXTOS e EMOJIS.
+      Os href="#alguma-coisa" devem bater com os id="alguma-coisa" das seções abaixo.
+      ========================================================== -->
+      <section id="atalhos">
+        <h2><span class="icon">⚡</span>Ações rápidas</h2>
+        <p class="section-subtitle">
+          Toques rápidos para o que mais importa durante sua estadia na Praia
+          do Francês.
+        </p>
+        <div class="quick-actions">
+          <!-- Botão leva para seção "onde-comer" -->
+          <a href="#onde-comer">
+            <span class="icon">🍽️</span>
+            <span>Onde comer hoje</span>
+          </a>
+
+          <!-- Botão leva para seção "o-que-fazer" -->
+          <a href="#o-que-fazer">
+            <span class="icon">🛶</span>
+            <span>O que fazer agora</span>
+          </a>
+
+          <!-- Botão leva para seção "roteiros" -->
+          <a href="#roteiros">
+            <span class="icon">🗺️</span>
+            <span>Roteiro em 1 dia</span>
+          </a>
+
+          <!-- Botão leva para seção "com-criancas" -->
+          <a href="#com-criancas">
+            <span class="icon">🧒</span>
+            <span>Com crianças</span>
+          </a>
+
+          <!-- Botão leva para seção "noite" -->
+          <a href="#noite">
+            <span class="icon">🌙</span>
+            <span>Vida noturna</span>
+          </a>
+
+          <!-- Botão leva para seção "servicos" -->
+          <a href="#servicos">
+            <span class="icon">🅿️</span>
+            <span>Estacionamento & serviços</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- =========================================================
+      SEÇÃO: SOBRE A PRAIA
+      Aqui você pode trocar todos os textos para adaptar ao que você quer dizer.
+      Basta editar os parágrafos e títulos. Não precisa mexer em id, classes, etc.
+      ========================================================== -->
+      <section id="sobre">
+        <h2><span class="icon">🌴</span>Sobre a Praia do Francês</h2>
+        <p class="section-subtitle">
+          Entenda rapidamente como a praia é dividida e qual parte combina mais
+          com o seu estilo de viagem.
+        </p>
+        <div class="two-cols">
+          <div class="mini-card">
+            <strong>Piscinas naturais • Lado esquerdo</strong>
+            <p>
+              Protegido por recifes, forma uma grande piscina natural em maré
+              baixa, com águas calmas e verde-esmeralda. Ideal para famílias com
+              crianças, quem quer relaxar nas barracas e curtir o mar tranquilo.
+            </p>
+          </div>
+          <div class="mini-card">
+            <strong>Ondas e coqueiros • Lado direito</strong>
+            <p>
+              Trecho com ondas mais fortes, clima mais rústico e menos barracas.
+              É o point dos surfistas e de quem prefere um visual mais selvagem.
+            </p>
+          </div>
+        </div>
+        <p style="font-size: 13px; margin-top: 8px;">
+          A Praia do Francês fica em Marechal Deodoro, a poucos quilômetros de
+          Maceió, com boa infraestrutura de pousadas, bares, restaurantes,
+          lojinhas e passeios de barco.
+        </p>
+      </section>
+
+      <!-- =========================================================
+      SEÇÃO: MAPA / COMO CHEGAR
+      PRINCIPAL PONTO QUE VOCÊ DEVE TROCAR:
+        - URL DO GOOGLE MAPS (href do "Abrir mapa")
+      ========================================================== -->
+      <section id="mapa">
+        <h2><span class="icon">🗺️</span>Mapa e como chegar</h2>
+        <p class="section-subtitle">
+          Use o mapa para traçar rota a partir de Maceió ou de qualquer ponto
+          da região.
+        </p>
+        <div class="list">
+          <div class="list-item">
+            <div class="list-item-header">
+              <div class="list-item-title">Ver no Google Maps</div>
+              <div class="list-item-tag">Rota rápida</div>
+            </div>
+            <div class="list-item-body">
+              Abra a localização da Praia do Francês e trace sua rota em tempo
+              real.
+            </div>
+            <div class="list-item-footer">
+              <!-- =================================================
+              TROQUE AQUI PARA A URL DO MAPA QUE VOCÊ QUISER:
+              1) Abra o Google Maps.
+              2) Pesquise "Praia do Francês Alagoas".
+              3) Clique em "Compartilhar" e copie o link.
+              4) Cole o link abaixo no href="...".
+              ================================================== -->
+              <a
+                href="https://www.google.com/maps/search/?api=1&query=Praia+do+Franc%C3%AAs+Alagoas"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="pill-link"
+              >
+                <span class="icon">📍</span>
+                <span>Abrir mapa</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="list-item">
+            <div class="list-item-header">
+              <div class="list-item-title">Dica rápida de acesso</div>
+              <div class="list-item-tag">Estrada</div>
+            </div>
+            <div class="list-item-body">
+              Partindo de Maceió, o acesso é feito pela AL-101 Sul em direção a
+              Marechal Deodoro. Em seguida, siga a sinalização para Praia do
+              Francês.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =========================================================
+      SEÇÃO: ONDE COMER
+      Aqui você altera APENAS TEXTOS.
+      Se quiser destacar parceiros, pode adaptar um dos cards.
+      ========================================================== -->
+      <section id="onde-comer">
+        <h2><span class="icon">🍤</span>Onde comer e beber</h2>
+        <p class="section-subtitle">
+          Alguns estilos de lugares para você escolher conforme seu humor e
+          orçamento. Depois você pode trocar pelos parceiros oficiais.
+        </p>
+        <div class="list">
+          <div class="list-item">
+            <div class="list-item-header">
+              <div class="list-item-title">Frutos do mar à beira-mar</div>
+              <div class="list-item-tag">Clássico da praia</div>
+            </div>
+            <div class="list-item-body">
+              Barracas e restaurantes especializados em peixes, camarão e
+              moquecas, com serviço de cadeiras e guarda-sóis pé na areia.
+            </div>
+            <div class="list-item-footer">
+              <span class="pill-link">
+                <span class="icon">🥥</span>
+                <span>Dica: pergunte sobre consumo mínimo</span>
+              </span>
+            </div>
+          </div>
+
+          <div class="list-item">
+            <div class="list-item-header">
+              <div class="list-item-title">Beach clubs & drinks</div>
+              <div class="list-item-tag">Dia inteiro</div>
+            </div>
+            <div class="list-item-body">
+              Espaços com boa estrutura, música ambiente e cardápio variado
+              para quem quer passar o dia todo na mesma barraca.
+            </div>
+            <div class="list-item-footer">
+              <a href="#ofertas" class="pill-link">
+                <span class="icon">⭐</span>
+                <span>Ver parceiros em destaque</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="list-item">
+            <div class="list-item-header">
+              <div class="list-item-title">Noite na La Rue</div>
+              <div class="list-item-tag">Vida noturna</div>
+            </div>
+            <div class="list-item-body">
+              Área com bares, restaurantes e lojinhas com clima de calçadão de
+              praia, ideal para jantar e tomar um drink.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =========================================================
+      SEÇÃO: O QUE FAZER AGORA
+      Você pode mudar o título de cada <strong> e o texto ao lado.
+      ========================================================== -->
+      <section id="o-que-fazer">
+        <h2><span class="icon">🛶</span>O que fazer agora</h2>
+        <p class="section-subtitle">
+          Sugestões rápidas para manhã, tarde e noite, dependendo da maré e do
+          seu ânimo.
+        </p>
+        <div class="tips-grid">
+          <div class="tip">
+            <strong>Manhã de maré baixa</strong>
+            Piscinas naturais lado esquerdo, passeio de jangada, snorkel simples
+            para ver peixes e recifes.
+          </div>
+          <div class="tip">
+            <strong>Tarde relax</strong>
+            Escolha uma barraca com estrutura, peça um prato regional e aproveite
+            as cadeiras à sombra.
+          </div>
+          <div class="tip">
+            <strong>Tarde com adrenalina</strong>
+            Alugue caiaque, stand up paddle ou faça passeios de lancha ou jet ski,
+            conforme disponibilidade local.
+          </div>
+          <div class="tip">
+            <strong>Noite</strong>
+            Caminhe pela área central da praia, escolha um bar com música ao vivo
+            e finalize o dia com um bom prato e um drink.
+          </div>
+        </div>
+      </section>
+
+      <!-- =========================================================
+      SEÇÃO: ROTEIROS
+      Aqui você pode reescrever os itens da lista (<li>) como quiser.
+      ========================================================== -->
+      <section id="roteiros">
+        <h2><span class="icon">🗺️</span>Roteiros sugeridos</h2>
+        <p class="section-subtitle">
+          Ideias de como organizar 1 ou 3 dias completos pela região.
+        </p>
+        <div class="two-cols">
+          <div class="mini-card">
+            <strong>1 dia na Praia do Francês</strong>
+            <ul style="padding-left: 18px; font-size: 13px; margin-top: 4px;">
+              <li>Chegar cedo para pegar maré baixa nas piscinas naturais.</li>
+              <li>Fazer passeio de jangada até os recifes.</li>
+              <li>Almoçar em barraca de frutos do mar.</li>
+              <li>Assistir ao fim de tarde na areia ou em um beach club.</li>
+              <li>Jantar em restaurante ou bar com música.</li>
+            </ul>
+          </div>
+          <div class="mini-card">
+            <strong>3 dias na região</strong>
+            <ul style="padding-left: 18px; font-size: 13px; margin-top: 4px;">
+              <li>Dia 1 – Praia do Francês completa.</li>
+              <li>Dia 2 – Passeio para praias vizinhas (Gunga, Barra de São Miguel...).</li>
+              <li>Dia 3 – Centro Histórico de Marechal Deodoro + mais praia.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- =========================================================
+      SEÇÃO: COM CRIANÇAS
+      Apenas textos. Pode adaptar às suas recomendações.
+      ========================================================== -->
+      <section id="com-criancas">
+        <h2><span class="icon">👨‍👩‍👧‍👦</span>Praia do Francês com crianças</h2>
+        <p class="section-subtitle">
+          Pontos de atenção para quem vem em família.
+        </p>
+        <div class="tips-grid">
+          <div class="tip">
+            <strong>Lado das piscinas naturais</strong>
+            Priorize o trecho protegido pelos recifes, com mar mais calmo,
+            sempre respeitando a orientação de salva-vidas e da maré.
+          </div>
+          <div class="tip">
+            <strong>Estrutura</strong>
+            Prefira barracas com banheiro, chuveiro, cardápio variado e sombra
+            confortável.
+          </div>
+          <div class="tip">
+            <strong>Horários</strong>
+            Evite o sol muito forte entre 11h e 15h, use protetor solar e
+            mantenha as crianças hidratadas.
+          </div>
+          <div class="tip">
+            <strong>Segurança</strong>
+            Mesmo em trecho calmo, crianças nunca devem ficar sozinhas na água.
+          </div>
+        </div>
+      </section>
+
+      <!-- =========================================================
+      SEÇÃO: VIDA NOTURNA
+      Novamente, tudo texto. Edite conforme o cenário real.
+      ========================================================== -->
+      <section id="noite">
+        <h2><span class="icon">🌙</span>Vida noturna</h2>
+        <p class="section-subtitle">
+          Ideias para depois do pôr do sol.
+        </p>
+        <div class="list">
+          <div class="list-item">
+            <div class="list-item-header">
+              <div class="list-item-title">Bares com música ao vivo</div>
+              <div class="list-item-tag">Fim de tarde & noite</div>
+            </div>
+            <div class="list-item-body">
+              Bares com petiscos, pratos regionais e música ao vivo, ideais para
+              fechar o dia de praia com clima descontraído.
+            </div>
+          </div>
+          <div class="list-item">
+            <div class="list-item-header">
+              <div class="list-item-title">Jantar tranquilo em família</div>
+              <div class="list-item-tag">Família</div>
+            </div>
+            <div class="list-item-body">
+              Restaurantes de culinária regional, massas e pizzarias atendem bem
+              quem prefere uma noite mais calma.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =========================================================
+      SEÇÃO: OFERTAS & PARCEIROS (AQUI ENTRA O DINHEIRO)
+      PONTOS IMPORTANTES PARA TROCAR:
+        1) Nome do parceiro
+        2) Descrição da oferta
+        3) Número de WhatsApp do parceiro
+        4) Link do Google Maps do parceiro
+      Para criar mais parceiros, copie e cole o bloco <div class="list-item">...</div>
+      ========================================================== -->
+      <section id="ofertas">
+        <h2><span class="icon">⭐</span>Ofertas & parceiros locais</h2>
+        <p class="section-subtitle">
+          Espaço reservado para negócios que apoiam este guia. Edite com as
+          ofertas ativas.
+        </p>
+        <div class="list">
+          <!-- PARCEIRO 1 -->
+          <div class="list-item">
+            <div class="list-item-header">
+              <!-- AQUI VOCÊ TROCA O NOME DO PARCEIRO -->
+              <div class="list-item-title">Parceiro 1 • Restaurante / Beach Club</div>
+              <div class="list-item-tag">Oferta ativa</div>
+            </div>
+            <!-- AQUI VOCÊ DESCREVE A OFERTA -->
+            <div class="list-item-body">
+              Coloque aqui o benefício que o cliente recebe ao mostrar este guia.
+              Exemplo: drink de boas-vindas, desconto em prato executivo ou área VIP.
+            </div>
+            <div class="list-item-footer">
+              <!-- WHATSAPP DO PARCEIRO -->
+              <a
+                href="https://wa.me/5582999999999?text=Olá,%20vi%20sua%20oferta%20no%20Guia%20NFC%20da%20Praia%20do%20Francês."
+                target="_blank"
+                rel="noopener noreferrer"
+                class="pill-link"
+              >
+                <span class="icon">💬</span>
+                <span>Resgatar pelo WhatsApp</span>
+              </a>
+              <!-- MAPA DO PARCEIRO -->
+              <a
+                href="https://www.google.com/maps"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="pill-link"
+              >
+                <span class="icon">📍</span>
+                <span>Ver rota</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- PARCEIRO 2 -->
+          <div class="list-item">
+            <div class="list-item-header">
+              <div class="list-item-title">Parceiro 2 • Passeios & experiências</div>
+              <div class="list-item-tag">Passeios</div>
+            </div>
+            <div class="list-item-body">
+              Coloque aqui informações sobre jangadas, lanchas, mergulhos ou
+              passeios para praias vizinhas que esse parceiro oferece.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =========================================================
+      SEÇÃO: SERVIÇOS
+      Tudo texto. Use para passar orientações práticas.
+      ========================================================== -->
+      <section id="servicos">
+        <h2><span class="icon">🚗</span>Estacionamento & serviços úteis</h2>
+        <p class="section-subtitle">
+          Informações práticas para facilitar seu dia de praia.
+        </p>
+        <div class="tips-grid">
+          <div class="tip">
+            <strong>Estacionamento</strong>
+            Informe pontos de estacionamento público, privado ou áreas pagas
+            mais próximas da orla.
+          </div>
+          <div class="tip">
+            <strong>Caixa eletrônico / farmácia</strong>
+            Liste os locais mais próximos para saque, compra de remédios,
+            protetor solar, etc.
+          </div>
+          <div class="tip">
+            <strong>Transporte</strong>
+            Dicas de transporte por aplicativo, táxis e vans/ônibus que atendem
+            a região.
+          </div>
+          <div class="tip">
+            <strong>Emergência</strong>
+            Contatos úteis (emergência, polícia, saúde) e orientações básicas
+            de segurança.
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- =========================================================
+    RODAPÉ
+    Você pode colocar sua marca, site, Instagram, etc.
+    Basta trocar o texto dentro das <div>.
+    ========================================================== -->
+    <footer>
+      <div>Guia NFC Praia do Francês • Projeto piloto</div>
+      <div>
+        Atualize este guia sempre que houver mudanças em parceiros, preços e serviços.
+      </div>
+    </footer>
+  </div>
+
+  <!-- =========================================================
+  SCRIPT DE ROLAGEM SUAVE
+  NÃO PRECISA MEXER AQUI.
+  Ele só faz o scroll ir suave quando clica nos botões que usam href="#..."
+  ========================================================== -->
+  <script>
+    document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
+      anchor.addEventListener("click", function (e) {
+        var targetId = this.getAttribute("href");
+        if (targetId.length > 1) {
+          e.preventDefault();
+          var el = document.querySelector(targetId);
+          if (el) {
+            window.scrollTo({
+              top: el.offsetTop - 16,
+              behavior: "smooth",
+            });
+          }
+        }
+      });
+    });
+  </script>
+</body>
+</html>
